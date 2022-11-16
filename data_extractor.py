@@ -1,7 +1,6 @@
 import os
 import requests
 import yaml
-import json
 import pandas as pd
 
 
@@ -63,9 +62,9 @@ def main(*args, **kwargs):
         return
 
     # Create match_info object
-    match_info = {'match_id': match["metadata"]["matchId"]}
+    match_info = {'match_id': match['metadata']['matchId']}
     match_info['game_duration'] = match['info']['gameDuration']
-
+    match_info['game_version'] = match['info']['gameVersion']
     # Get teams info
     teams = match['info']['teams']
 
