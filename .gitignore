@@ -1,3 +1,6 @@
+.vscode/
+venv/
+.venv/
+
 config.yml
-.vscode
-match_info.csv
+matches.jsonl
