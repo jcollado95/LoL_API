@@ -82,7 +82,7 @@ def main(*args, **kwargs):
 
                     # Bans
                     for ban in team['bans']:
-                        match_info["_".join(["ban", str(team_id), str(ban['pickTurn'])])] = ban['championId']
+                        match_info["_".join(["ban", str(ban['pickTurn'])])] = ban['championId']
                     
                     # Objectives
                     for obj_key, obj_value in team['objectives'].items():
@@ -116,16 +116,10 @@ def main(*args, **kwargs):
                     jout = json.dumps(match_info)
                     f.write(jout)
                     f.write("\n")
-                # Create and save dataframe as csv
-                # df = pd.DataFrame([match_info.values()], columns=match_info.keys())
-
-                # if not os.path.isfile("match_info.csv"):
-                #     df.to_csv("match_info.csv", header="column_names", index=False)
-                # else:
-                #     df.to_csv("match_info.csv", mode="a", header=False, index=False)
 
         except Exception as e:
-            print(e)
+            print(f"Error: {e}")
+
 if __name__ == "__main__":
     with open("config.yml", "r") as f:
         try:
@@ -134,5 +128,3 @@ if __name__ == "__main__":
            print(e)
 
     main(cfg)
-    # for _ in range(1):
-    #     main(cfg)
